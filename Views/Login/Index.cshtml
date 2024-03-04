@@ -1,0 +1,20 @@
+﻿@model AgenziaSpedizioni.Models.Utente
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="d-flex flex-column">
+        @Html.LabelFor(model => model.Username)
+        @Html.EditorFor(model => model.Username)
+
+        @Html.LabelFor(model => model.Password)
+        @Html.EditorFor(model => model.Password)
+    </div>
+    <button class="btn btn-primary mt-3">Login</button>
+}
+
+
