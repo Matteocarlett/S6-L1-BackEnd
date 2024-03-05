@@ -7,7 +7,7 @@ using AgenziaSpedizioni.Models;
 
 namespace AgenziaSpedizioni.Controllers
 {
-    public class LoginController : Controller
+    public class UtenteCFController : Controller
     {
         public ActionResult Index()
         {
@@ -15,22 +15,22 @@ namespace AgenziaSpedizioni.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Index(Utente utente)
+        public ActionResult Index(UtenteCF utentecf)
         {
             string connString = ConfigurationManager.ConnectionStrings["DbAgenziaSpedizioni"].ToString();
             using (var conn = new SqlConnection(connString))
             {
                 conn.Open();
-                var command = new SqlCommand("SELECT * FROM Admin WHERE Username = @Username AND Password = @password", conn);
-                command.Parameters.AddWithValue("@Username", utente.Username);
-                command.Parameters.AddWithValue("@Password", utente.Password);
+                var command = new SqlCommand("SELECT * FROM UtenteCF WHERE Username = @Username AND Password = @Password", conn);
+                command.Parameters.AddWithValue("@Username", utentecf.Username);
+                command.Parameters.AddWithValue("@Password", utentecf.Password);
                 var reader = command.ExecuteReader();
 
                 if (reader.HasRows)
                 {
                     reader.Read();
                     FormsAuthentication.SetAuthCookie(reader["Id"].ToString(), true);
-                    return RedirectToAction("Index", "Login"); 
+                    return RedirectToAction("Index", "UtenteCF"); 
                 }
             }
 
@@ -52,7 +52,7 @@ namespace AgenziaSpedizioni.Controllers
         {
             FormsAuthentication.SignOut();
 
-            return RedirectToAction("Index", "Login");
+            return RedirectToAction("Index", "UtenteCF");
 
         }
     }

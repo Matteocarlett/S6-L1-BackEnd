@@ -7,7 +7,7 @@ using System.Web;
 
 namespace AgenziaSpedizioni.Models
 {
-    public class Utente
+    public class UtenteCF
     {
         [Key]
         public int Id { get; set; }
