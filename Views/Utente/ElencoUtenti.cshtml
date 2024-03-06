@@ -1,0 +1,29 @@
+﻿@model List<AgenziaSpedizioni.Models.Utente>
+
+@{
+    ViewBag.Title = "Elenco Utenti";
+}
+
+<h2>Elenco Utenti</h2>
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Cognome</th>
+        <th>Email</th>
+        <th>Codice Fiscale</th>
+        <th>Username</th>
+    </tr>
+    @foreach (var utente in Model)
+    {
+        <tr>
+            <td>@utente.Id</td>
+            <td>@utente.Nome</td>
+            <td>@utente.Cognome</td>
+            <td>@utente.Email</td>
+            <td>@utente.CodiceFiscale</td>
+            <td>@utente.Username</td>
+        </tr>
+    }
+</table>

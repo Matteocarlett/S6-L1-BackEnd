@@ -1,0 +1,36 @@
+﻿@model List<AgenziaSpedizioni.Models.Spedizione>
+
+@{
+    ViewBag.Title = "Elenco Spedizioni";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Data Spedizione</th>
+        <th>Peso</th>
+        <th>Città Destinataria</th>
+        <th>Indirizzo</th>
+        <th>Nominativo Destinatario</th>
+        <th>Costi Spedizione</th>
+        <th>Data Arrivo</th>
+        <th>Nominativo Venditore</th>
+    </tr>
+    @foreach (var spedizione in Model)
+    {
+        <tr>
+            <td>@spedizione.Id</td>
+            <td>@spedizione.DataSpedizione</td>
+            <td>@spedizione.Peso</td>
+            <td>@spedizione.CittàDestinataria</td>
+            <td>@spedizione.Indirizzo</td>
+            <td>@spedizione.NominativoDestinatario</td>
+            <td>@spedizione.CostiSpedizione</td>
+            <td>@spedizione.DataArrivo</td>
+            <td>@spedizione.NominativoVenditore</td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("Aggiungi Spedizione", "AggiungiSpedizione", null, new { @class = "btn btn-primary" })

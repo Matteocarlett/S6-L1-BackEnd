@@ -1,9 +1,57 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<main aria-labelledby="title">
-    <h2 id="title">@ViewBag.Title.</h2>
-    <h3>@ViewBag.Message</h3>
 
-    <p>Use this area to provide additional information.</p>
+<main aria-labelledby="title">
+    <h2 class="fs-1 fw-bold">Informazioni</h2>
+    <p class="fs-4 fw-lighter mt-3">Benvenuti nell'universo di EpiTruck, l'azienda leader nel settore dei trasporti su strada!</p>
+
+    <section>
+        <h3 class="fs-2 mt-3">Chi Siamo</h3>
+        <p class="fs-4 fw-lighter mt-3">EpiTruck è un'azienda di trasporti dedicata a fornire servizi efficienti e affidabili per soddisfare le esigenze dei nostri clienti. Con anni di esperienza nel settore, ci impegniamo a offrire soluzioni di trasporto su misura per ogni necessità.</p>
+    </section>
+
+    <section>
+        <h3 class="fs-1 fw-bold">I Nostri Servizi</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card h-100" style="width: 22rem;">
+                    <img src="https://canginitrasporti.it/wp-content/uploads/2019/03/trasporto-intermodale.jpg" class="card-img-top img-fluid" alt="Trasporto Merci">
+                    <div class="card-body">
+                        <h5 class="card-title">Trasporto Merci</h5>
+                        <p class="card-text">Offriamo servizi di trasporto merci su lunghe e brevi distanze, garantendo la sicurezza e l'affidabilità delle spedizioni.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100" style="width: 20rem;">
+                    <img src="https://mecaluxit.cdnwm.com/blog/img/catena-logistica.1.6.jpg" class="card-img-top img-fluid" alt="Logistica">
+                    <div class="card-body">
+                        <h5 class="card-title">Logistica</h5>
+                        <p class="card-text">Grazie alla nostra competenza logistica, ottimizziamo i processi di distribuzione per garantire la puntualità e l'efficienza delle consegne.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100" style="width: 24rem;">
+                    <img src="https://industrial-innovation.it/wp-content/uploads/2021/09/cosa-significa-logistica.jpg" class="card-img-top img-fluid" alt="Trasporto su Lunghe Distanze">
+                    <div class="card-body">
+                        <h5 class="card-title">Trasporto su Lunghe Distanze</h5>
+                        <p class="card-text">Siamo specializzati nel trasporto su lunghe distanze, offrendo soluzioni di trasporto internazionale sicure e affidabili.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h3 class="fs-3 mt-3">Contattaci</h3>
+        <address>
+            EpiTruck S.r.l.<br>
+            Via dei Trasportatori, 123<br>
+            00123, Città Trasporti (TS)<br>
+            Telefono: +39 0123 456789<br>
+            Email: info@epitruck.com
+        </address>
+    </section>
 </main>

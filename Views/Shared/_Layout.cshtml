@@ -11,7 +11,7 @@
 <body>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
         <div class="container">
-            @Html.ActionLink("BoiaDeh", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("EpiTruck", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Attiva/Disattiva spostamento" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -20,7 +20,9 @@
                 <ul class="navbar-nav flex-grow-1">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Informazioni", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contatto", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Contatti", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Utenti Registrati", "ElencoUtenti", "Utente", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Spedizioni", "ElencoSpedizioni", "Spedizioni", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
                 <div>
                     <ul class="navbar-nav flex-grow-1">
@@ -30,12 +32,15 @@
                                 using (Html.BeginForm("Logout", "Login"))
                                 {
                                     @Html.AntiForgeryToken()
-                                    <button class="btn btn-primary">Logout</button>
+                                    <button class="nav-link btn btn-dark p-0">Logout</button>
                                 }
                             }
                             else
                             {
-                                @Html.ActionLink("Login", "Index", "Login", new { area = "" }, new { @class = "btn btn-primary" })
+                        <div class="d-flex">
+                            @Html.ActionLink("Accedi", "Index", "Login", new { area = "" }, new { @class = "nav-link btn btn-dark  my-md-0 mx-md-2 p-0" })
+                            @Html.ActionLink("Registrati", "Register", "Login", new { area = "" }, new { @class = "nav-link btn btn-dark my-md-0 mx-md-0 p-0" })
+                        </div>
                             }
                         </li>
 
@@ -49,8 +54,16 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Applicazione ASP.NET</p>
+            <div class="container">
+                <p>&copy; @DateTime.Now.Year - Agenzia Trasporti EpiTruck</p>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#">Termini e Condizioni</a></li>
+                    <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                    <li class="list-inline-item"><a href="#">Contattaci</a></li>
+                </ul>
+            </div>
         </footer>
+
     </div>
 
     @Scripts.Render("~/bundles/jquery")
