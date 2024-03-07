@@ -39,7 +39,7 @@ namespace AgenziaSpedizioni.Controllers
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
 
@@ -63,8 +63,8 @@ namespace AgenziaSpedizioni.Controllers
                         conn.Open();
                         var command = new SqlCommand(@"
                             INSERT INTO Spedizione
-                            (DataSpedizione, Peso, CittàDestinataria, Indirizzo, NominativoDestinatario, CostiSpedizione, DataArrivo, NominativoVenditore)
-                            VALUES (@dataSpedizione, @peso, @cittàDestinataria, @indirizzo, @nominativoDestinatario, @costiSpedizione, @dataArrivo, @nominativoVenditore)
+                            (DataSpedizione, Peso, CittàDestinataria, inidrizzo, NominativoDestinatario, CostiSpedizione, DataArrivo, NominativoVenditore)
+                            VALUES (@dataSpedizione, @peso, @cittàDestinataria, @inidrizzo, @nominativoDestinatario, @costiSpedizione, @dataArrivo, @nominativoVenditore)
                         ", conn);
                         command.Parameters.AddWithValue("@dataSpedizione", spedizione.DataSpedizione);
                         command.Parameters.AddWithValue("@peso", spedizione.Peso);
@@ -78,9 +78,9 @@ namespace AgenziaSpedizioni.Controllers
                         command.ExecuteNonQuery();
                     }
 
-                    return RedirectToAction("Index");
+                    return RedirectToAction("ElencoSpedizioni");
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                 }
             }

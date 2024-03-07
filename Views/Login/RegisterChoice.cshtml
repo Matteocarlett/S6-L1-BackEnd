@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "RegisterChoice";
+}
+
+<h2>Sei un Privato o un'Azienda?</h2>
+<p>Seleziona una scelta fra Codice Fiscale e Partita IVA (consigliato per Aziende)</p>
+
+@using (Html.BeginForm("RegisterChoice", "Login", FormMethod.Post))
+{
+    <button type="submit" name="registrationType" value="CF" class="btn btn-primary"> Codice Fiscale</button>
+    <button type="submit" name="registrationType" value="PI" class="btn btn-primary"> Partita IVA</button>
+}

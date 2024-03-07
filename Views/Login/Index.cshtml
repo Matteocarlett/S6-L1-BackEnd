@@ -1,6 +1,4 @@
-﻿@model AgenziaSpedizioni.Models.Utente
-
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
@@ -9,11 +7,11 @@
 @using (Html.BeginForm())
 {
     <div class="d-flex flex-column">
-        @Html.LabelFor(model => model.Username)
-        @Html.EditorFor(model => model.Username)
+        <label for="Username">Username</label>
+        <input type="text" id="Username" name="Username" class="form-control" />
 
-        @Html.LabelFor(model => model.Password)
-        @Html.EditorFor(model => model.Password)
+        <label for="Password">Password</label>
+        <input type="password" id="Password" name="Password" class="form-control" />
     </div>
     <button class="btn btn-primary mt-3">Accedi</button>
 }

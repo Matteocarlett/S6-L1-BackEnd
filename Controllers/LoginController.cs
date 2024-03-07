@@ -15,27 +15,42 @@ namespace AgenziaSpedizioni.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Index(Utente utente)
+        public ActionResult Index(string Username, string Password )
         {
             string connString = ConfigurationManager.ConnectionStrings["DbAgenziaSpedizioni"].ToString();
             using (var conn = new SqlConnection(connString))
             {
+
                 conn.Open();
                 var command = new SqlCommand("SELECT * FROM UtenteCF WHERE Username = @Username AND Password = @password", conn);
-                command.Parameters.AddWithValue("@Username", utente.Username);
-                command.Parameters.AddWithValue("@Password", utente.Password);
+                command.Parameters.AddWithValue("@Username", Username);
+                command.Parameters.AddWithValue("@Password", Password);
                 var reader = command.ExecuteReader();
 
                 if (reader.HasRows)
                 {
                     reader.Read();
-                    FormsAuthentication.SetAuthCookie(reader["Id"].ToString(), true);
+                    FormsAuthentication.SetAuthCookie(reader["Id"].ToString()+" ,Utente Privato", true);
                     return RedirectToAction("Index", "Login"); 
+                }
+                reader.Close();
+
+                command = new SqlCommand("SELECT * FROM UtentePI WHERE Username = @Username AND Password = @password", conn);
+                command.Parameters.AddWithValue("@Username", Username);
+                command.Parameters.AddWithValue("@Password", Password);
+                reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    FormsAuthentication.SetAuthCookie(reader["Id"].ToString()+" ,Azienda", true);
+                    return RedirectToAction("Index", "Login");
                 }
             }
 
             return RedirectToAction("Index");
         }
+
 
 
         [Authorize]
@@ -86,5 +101,27 @@ namespace AgenziaSpedizioni.Controllers
             }
             return View();
         }
+        public ActionResult RegisterChoice()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult RegisterChoice(string registrationType)
+        {
+            if (registrationType == "CF")
+            {
+                return RedirectToAction("Register", "Login");
+            }
+            else if (registrationType == "PI")
+            {
+                return RedirectToAction("Register", "UtentePI");
+            }
+            else
+            { 
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
     }
 }

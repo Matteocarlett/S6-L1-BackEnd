@@ -124,12 +124,14 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SpedizioniController.cs" />
     <Compile Include="Controllers\UtenteController.cs" />
+    <Compile Include="Controllers\UtentePIController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Spedizione.cs" />
     <Compile Include="Models\Utente.cs" />
+    <Compile Include="Models\UtentePI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -189,6 +191,8 @@
     <Content Include="Views\Utente\ElencoUtenti.cshtml" />
     <Content Include="Views\Spedizioni\AggiungiSpedizione.cshtml" />
     <Content Include="Views\Spedizioni\ElencoSpedizioni.cshtml" />
+    <Content Include="Views\UtentePI\Register.cshtml" />
+    <Content Include="Views\Login\RegisterChoice.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
